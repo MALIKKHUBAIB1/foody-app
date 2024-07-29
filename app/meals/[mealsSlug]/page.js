@@ -2,18 +2,22 @@ import { getMeal } from "@/lib/meal";
 import Image from "next/image";
 import classes from "./page.module.css";
 import { notFound } from "next/navigation";
-function MealsDetailPage({ params }) {
-  // console.log(params);
-  const meal = getMeal(params.mealsSlug);
+async function MealsDetailPage({ params }) {
+  const meal = await getMeal(params.mealsSlug);
+
   if (!meal) {
     notFound();
   }
-  meal.instructions = meal.instructions.replace(/\n/g, "<br >");
+  meal.instructions = meal.instructions.replace(/\n/g, "<br>");
   return (
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image fill src={meal.image} alt={meal.title} />
+          <Image
+            src={`https://khubaib-next-js-foddy-app.s3.amazonaws.com/${meal.image}`}
+            alt={meal.title}
+            fill
+          />
         </div>
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>

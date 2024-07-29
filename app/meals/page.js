@@ -1,7 +1,7 @@
 import Link from "next/link";
 import classes from "./page.module.css";
 import MealsGrid from "@/component/Meals/meals-grid";
-import getMeals from "@/lib/meal";
+import { getMeals } from "@/lib/meal";
 import { Suspense } from "react";
 import MealLoading from "./loading-out";
 async function Meals() {

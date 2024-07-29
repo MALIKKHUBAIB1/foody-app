@@ -13,7 +13,7 @@ export default function NavLink({ href, children }) {
           : classes.link
       }
     >
-      {children}z
+      {children}
     </Link>
   );
 }
