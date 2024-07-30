@@ -6,7 +6,6 @@ export default function ImagePicker({ label, name }) {
   const imageInputRef = useRef();
   const [pickImage, setPickImage] = useState();
   function handlePickClick(e) {
-    // console.log(imageInputRef);
     imageInputRef.current.click();
   }
   function handleImageChange(e) {
@@ -15,7 +14,6 @@ export default function ImagePicker({ label, name }) {
       setPickImage(null);
       return;
     }
-
     const fileReader = new FileReader();
     fileReader.onload = () => {
       setPickImage(fileReader.result);
